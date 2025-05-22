@@ -1,4 +1,4 @@
-- name: Enable RDP on Windows host
+- name: Enable Remote Desktop Protocol
   hosts: 172.23.18.140
   gather_facts: no
   tasks:
