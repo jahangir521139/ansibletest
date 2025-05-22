@@ -16,13 +16,13 @@
         name: TermService
         state: started
 
-      - name: Add firewall rule for RDP when remoteip is IPv4 
-        win_firewall_rule:
-          name: AWXRDPAllow
-          enabled: yes
-          state: present
-          localport: 3389
-          remoteip: 192.168.0.55
-          action: allow
-          direction: in
-          protocol: tcp
+    - name: Add firewall rule for RDP when remoteip is IPv4 
+      win_firewall_rule:
+        name: AWXRDPAllow
+        enabled: yes
+        state: present
+        localport: 3389
+        remoteip: 192.168.0.55
+        action: allow
+        direction: in
+        protocol: tcp
