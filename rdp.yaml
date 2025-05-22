@@ -4,14 +4,14 @@
   tasks:
 
     - name: Enable RDP via registry
-      ansible.windows.win_regedit:
+      win_regedit:
         path: HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server
         name: fDenyTSConnections
         data: 0
         type: dword
 
     - name: Enable RDP Firewall Rule
-      ansible.windows.win_firewall_rule:
+      win_firewall_rule:
         name: RemoteDesktop-In-TCP
         enable: yes
         state: present
@@ -20,7 +20,7 @@
         direction: in
 
     - name: Ensure RDP service is running
-      ansible.windows.win_service:
+      windows.win_service:
         name: TermService
         start_mode: auto
         state: started
