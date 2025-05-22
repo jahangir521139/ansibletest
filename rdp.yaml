@@ -1,26 +1,21 @@
-- name: Enable RDP on Windows host
-  hosts: 172.23.18.140
-  gather_facts: no
-  tasks:
+      - name: Enable RDP on Windows host
+        hosts: 172.23.18.140
+        gather_facts: no
+        tasks:
 
-    - name: Enable RDP via registry
-      win_regedit:
-        path: HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server
-        name: fDenyTSConnections
-        data: 0
-        type: dword
+      - name: Enable RDP via registry
+        win_regedit:
+          path: HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server
+          name: fDenyTSConnections
+          data: 0
+          type: dword
 
-    - name: Enable RDP Firewall Rule
-      win_firewall_rule:
-        name: RemoteDesktop-In-TCP
-        enable: yes
-        state: present
-        localport: 33389
-        action: allow
-        direction: in
-
-    - name: Ensure RDP service is running
-      windows.win_service:
-        name: TermService
-        start_mode: auto
-        state: started
+      - name: Enable RDP Firewall Rule
+        win_firewall_rule:
+          name: RemoteDesktop-In-TCP
+          enable: yes
+          state: present
+          localport: 33389
+          action: allow
+          direction: in
+          protocol: tcp
