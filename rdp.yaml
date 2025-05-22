@@ -10,7 +10,7 @@
         data: 0
         type: dword
 
-    - name: Enable RDP Firewall Rule 33389
+    - name: Enable RDP Firewall Rule
       ansible.windows.win_firewall_rule:
         name: RemoteDesktop-In-TCP
         enable: yes
