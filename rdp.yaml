@@ -1,7 +1,7 @@
-      - name: Enable RDP on Windows host
-        hosts: 172.23.18.140
-        gather_facts: no
-        tasks:
+- name: Enable RDP on Windows host
+  hosts: 172.23.18.140
+  gather_facts: no
+  tasks:
     
     - name: Run PowerShell command   
      win_regedit:
