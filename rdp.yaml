@@ -1,5 +1,5 @@
 - name: Enable RDP on Windows host
-  hosts: windows
+  hosts: 172.23.18.140
   gather_facts: no
   tasks:
 
@@ -10,12 +10,12 @@
         data: 0
         type: dword
 
-    - name: Enable RDP Firewall Rule
+    - name: Enable RDP Firewall Rule 33389
       ansible.windows.win_firewall_rule:
         name: RemoteDesktop-In-TCP
         enable: yes
         state: present
-        localport: 3389
+        localport: 33389
         action: allow
         direction: in
 
