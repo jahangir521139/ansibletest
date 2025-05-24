@@ -5,7 +5,7 @@
     tasks:
       - name: Add firewall rule WinRM when remoteip is IPv4
         ansible.windows.win_firewall_rule:
-          name: AWXwinRMAllow
+          name: newrull
           enabled: yes
           state: present
           localport: 5985
