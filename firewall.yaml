@@ -1,0 +1,9 @@
+
+- name: Allow HTTP traffic
+  ansible.windows.win_firewall_rule:
+    name: "Allow HTTP"
+    localport: 80
+    protocol: TCP
+    action: allow
+    direction: in
+    state: present
