@@ -8,7 +8,7 @@
 
   tasks:
     - name: Add firewall rule WinRM when remoteip is IPv4
-      win_firewall_rule:
+      ansible.windows.win_firewall_rule:
         name: AWXwinRMAllow
         enabled: yes
         state: present
@@ -19,7 +19,7 @@
         protocol: tcp
 
     - name: Add firewall rule for RDP when remoteip is IPv4
-      win_firewall_rule:
+      ansible.windows.win_firewall_rule:
         name: AWXRDPAllow
         enabled: yes
         state: present
