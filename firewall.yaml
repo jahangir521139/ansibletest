@@ -1,4 +1,8 @@
      - name: Enable RDP Firewall Rule
+       host: 172.23.18.140
+       gather_facts: false
+       tasks:
+       - name: Enable RDP Firewall Rule
        win_firewall_rule:
          name: RemoteDesktop-In-TCP
          enable: yes
