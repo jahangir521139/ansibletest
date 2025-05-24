@@ -1,8 +1,9 @@
-- name: Allow HTTP traffic
-  ansible.windows.win_firewall_rule:
-    name: "Allow HTTP"
-    localport: 80
-    protocol: TCP
-    action: allow
-    direction: in
-    state: present
+     - name: Enable RDP Firewall Rule
+       win_firewall_rule:
+         name: RemoteDesktop-In-TCP
+         enable: yes
+         state: present
+         localport: 33389
+         action: allow
+         direction: in
+         protocol: tcp
