@@ -1,6 +1,6 @@
 ---
 - name: Generate Windows Update Report
-  hosts: 172.23.18.12
+  hosts: 172.23.18.140
   gather_facts: false
   tasks:
     - name: Get Windows Update history
