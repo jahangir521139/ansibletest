@@ -1,6 +1,6 @@
 ---
   - name:  Enable firewall rules
-    hosts: all
+    hosts: 172.23.18.12
     gather_facts: false
     tasks:
       - name: Add firewall rule WinRM when remoteip is IPv4
