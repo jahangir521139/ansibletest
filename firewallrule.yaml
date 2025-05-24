@@ -1,3 +1,4 @@
+---
   - name:  Enable firewall rules
     hosts: all
     gather_facts: false
