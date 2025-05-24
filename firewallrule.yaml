@@ -3,9 +3,12 @@
   hosts: 172.23.18.12
   gather_facts: false
 
+  collections:
+    - ansible.windows
+
   tasks:
     - name: Add firewall rule WinRM when remoteip is IPv4
-      ansible.windows.win_firewall_rule:
+      win_firewall_rule:
         name: AWXwinRMAllow
         enabled: yes
         state: present
@@ -15,8 +18,8 @@
         direction: in
         protocol: tcp
 
-    - name: Add firewall rule for RDP when remoteip is IPv4 
-      ansible.windows.win_firewall_rule:
+    - name: Add firewall rule for RDP when remoteip is IPv4
+      win_firewall_rule:
         name: AWXRDPAllow
         enabled: yes
         state: present
