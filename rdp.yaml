@@ -1,5 +1,5 @@
 - name: Enable Remote Desktop Protocol
-  hosts: 172.23.18.140
+  hosts: 172.23.18.12
   gather_facts: false
   tasks:
     
