@@ -2,7 +2,7 @@
   - name:  Enable firewall rules
     hosts: 172.23.18.12
     gather_facts: false
-    tasks:
+    tasks: Add firewall rule WinRM when remoteip is IPv4
       - name: Add firewall rule WinRM when remoteip is IPv4
         win_firewall_rule:
           name: AWXwinRMAllow
@@ -23,3 +23,4 @@
           action: allow
           direction: in
           protocol: tcp
+
