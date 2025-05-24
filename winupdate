@@ -1,0 +1,15 @@
+---
+- name: Generate Windows Update Report
+  hosts: windows
+  gather_facts: false
+  tasks:
+    - name: Get Windows Update history
+      ansible.windows.win_updates:
+        state: searched
+      register: update_info
+
+    - name: Save update report to a file on controller
+      copy:
+        content: "{{ update_info }}"
+        dest: "/tmp/{{ inventory_hostname }}_windows_update_report.json"
+      delegate_to: localhost
