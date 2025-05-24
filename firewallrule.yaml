@@ -23,3 +23,5 @@
           action: allow
           direction: in
           protocol: tcp
+      tasks:
+      - name: Add firewall rule WinRM when remoteip is IPv4
