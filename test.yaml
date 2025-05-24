@@ -1,5 +1,5 @@
 - name: Test Windows Host
-  hosts: 172.23.18.140
+  hosts: 172.23.18.12
   tasks:
     - name: Ping Windows host
       ansible.windows.win_ping:
