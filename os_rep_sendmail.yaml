@@ -21,6 +21,7 @@
       delegate_to: localhost
 - name: Send OS report via email
   hosts: localhost
+  become: yes
   tasks:
     - name: Email the OS report
       mail:
