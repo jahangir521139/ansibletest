@@ -21,7 +21,7 @@
       delegate_to: localhost
 
 -  hosts:
-     - localhost
+     - 172.23.18.26
    tasks:      
      - name: Mail send
        mail:
