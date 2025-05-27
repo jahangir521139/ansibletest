@@ -24,7 +24,6 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: Email the OS report
       mail:
         host: 172.23.18.26
         port: 465
