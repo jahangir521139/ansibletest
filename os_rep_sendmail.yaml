@@ -1,16 +1,21 @@
 ---
-- name: Generate OS report and send via email
+- name: Generate full OS and kernel version report
   hosts: all
   gather_facts: yes
   tasks:
-    - name: Create OS report line
+    - name: Create report line with OS family, name, version, and kernel
       ansible.builtin.set_fact:
-        os_line: "{{ inventory_hostname }},{{ ansible_os_family | default('Unknown') }},{{ ansible_distribution | default('Unknown') }},{{ ansible_distribution_version | default('Unknown') }},{{ ansible_kernel | default('Unknown') }}"
+        os_report_line: >
+          {{ inventory_hostname }},
+          {{ ansible_os_family | default('Unknown') }},
+          {{ ansible_distribution | default('Unknown') }},
+          {{ ansible_distribution_version | default('Unknown') }},
+          {{ ansible_kernel | default('Unknown') }}
 
     - name: Write OS info to local report file
       ansible.builtin.lineinfile:
         path: /tmp/os_report.csv
-        line: "{{ os_line }}"
+        line: "{{ os_report_line | regex_replace('\\s+', ' ') }}"
         create: yes
         insertafter: EOF
       delegate_to: localhost
