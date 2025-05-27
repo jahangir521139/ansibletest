@@ -20,10 +20,6 @@
         insertafter: EOF
       delegate_to: localhost
       
-- name: Send OS report via email
-  hosts: localhost
-  become: yes
-  tasks:
     - name: Mail send
       mail:
         host: 172.23.18.26
