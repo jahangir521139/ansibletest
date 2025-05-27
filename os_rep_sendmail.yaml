@@ -19,6 +19,7 @@
         create: yes
         insertafter: EOF
       delegate_to: localhost
+      
 - name: Send OS report via email
   hosts: localhost
   become: yes
