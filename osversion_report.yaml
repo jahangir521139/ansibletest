@@ -1,0 +1,16 @@
+---
+- name: Generate OS type and version report
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Collect and format OS info
+      ansible.builtin.set_fact:
+        os_report_line: "{{ inventory_hostname }},{{ ansible_os_family }},{{ ansible_distribution }},{{ ansible_distribution_version }}"
+
+    - name: Append OS info to CSV file
+      ansible.builtin.lineinfile:
+        path: os_report.csv
+        line: "{{ os_report_line }}"
+        create: yes
+        insertafter: EOF
+      delegate_to: localhost
