@@ -3,7 +3,6 @@
   hosts: all
   gather_facts: yes
   tasks:
-
     - name: Create OS report line
       ansible.builtin.set_fact:
         os_line: "{{ inventory_hostname }},{{ ansible_os_family | default('Unknown') }},{{ ansible_distribution | default('Unknown') }},{{ ansible_distribution_version | default('Unknown') }},{{ ansible_kernel | default('Unknown') }}"
