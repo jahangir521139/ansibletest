@@ -1,6 +1,6 @@
 ---
 - name: Gather OS information
-  hosts: 172.23.18.0/24
+  hosts: all
   gather_facts: yes
 
   tasks:
