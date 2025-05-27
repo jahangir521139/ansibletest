@@ -1,0 +1,9 @@
+---
+- name: Gather OS information
+  hosts: 172.23.18.0/24
+  gather_facts: yes
+
+  tasks:
+    - name: Print operating system
+      ansible.builtin.debug:
+        msg: "Host: {{ inventory_hostname }}, OS: {{ ansible_os_family }} ({{ ansible_distribution }})"
