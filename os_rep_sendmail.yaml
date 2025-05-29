@@ -1,6 +1,6 @@
 ---
 - name: Collect OS info and send report via email
-  hosts: localhost
+  hosts: all
   gather_facts: yes
   vars:
     email_sender: "ansible@upay.systems"
