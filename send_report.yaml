@@ -1,0 +1,15 @@
+---
+- name: Send OS report via email
+  hosts: localhost
+  tasks:
+    - name: Send email with attachment
+      mail:
+        host: smtp.yourdomain.com
+        port: 587
+        username: your_email@yourdomain.com
+        password: your_password
+        to: recipient@example.com
+        subject: "Ansible OS & Kernel Report"
+        body: "Please find the attached OS and Kernel version report."
+        attach:
+          - ./os_kernel_report.txt
