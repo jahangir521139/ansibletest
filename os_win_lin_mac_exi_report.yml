@@ -1,0 +1,22 @@
+---
+- name: Gather OS and Kernel Info
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Collect OS and kernel info
+      set_fact:
+        os_info: |
+          Host: {{ inventory_hostname }}
+          OS: {{ ansible_distribution | default('N/A') }}
+          OS Version: {{ ansible_distribution_version | default('N/A') }}
+          Kernel: {{ ansible_kernel | default('N/A') }}
+      register: os_kernel_data
+
+    - name: Append results to a report
+      local_action:
+        module: lineinfile
+        path: ./os_kernel_report.txt
+        line: "{{ os_info }}"
+        create: yes
+        insertafter: EOF
+      delegate_to: localhost
