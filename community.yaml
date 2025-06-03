@@ -1,3 +1,9 @@
-# requirements.yml
-collections:
-  - name: community.general
+- name: Example
+  hosts: localhost
+  collections:
+    - community.general
+  tasks:
+    - name: Use community.general module
+      community.general.pacman:
+        name: htop
+        state: present
